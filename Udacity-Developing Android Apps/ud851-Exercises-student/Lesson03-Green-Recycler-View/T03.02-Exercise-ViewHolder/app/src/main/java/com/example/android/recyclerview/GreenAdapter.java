@@ -106,9 +106,6 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     }
 
 
-    // TODO (16) Within the NumberViewHolder class, create a void method called bind that accepts an int parameter called listIndex
-    // TODO (17) Within bind, set the text of listItemNumberView to the listIndex
-    // TODO (18) Be careful to get the String representation of listIndex, as using setText with an int does something different
     class NumberViewHolder extends RecyclerView.ViewHolder {
         TextView listItemNumberView;
 
