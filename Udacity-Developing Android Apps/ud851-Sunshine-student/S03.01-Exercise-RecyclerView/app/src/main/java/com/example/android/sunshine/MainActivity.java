@@ -39,13 +39,81 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    public MainActivity() {
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private TextView mErrorMessageDisplay;
     private RecyclerView mRecyclerView;
     private ForecastAdapter mForecastAdapter;
-
     private ProgressBar mLoadingIndicator;
 
     @Override
