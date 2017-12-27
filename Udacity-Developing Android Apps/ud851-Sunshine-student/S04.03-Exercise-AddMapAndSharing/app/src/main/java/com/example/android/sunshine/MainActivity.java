@@ -221,8 +221,21 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             return true;
         }
 
+        if (id == R.id.open_map) {
+            openLocationMap();
+            return true;
+        }
+
         // TODO (2) Launch the map when the map menu item is clicked
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openLocationMap() {
+        String addressString = "1600 Ampitheatre Parkway, CA";
+        Uri geoLocation = Uri.parse("geo:0,0?q=" + addressString);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(geoLocation);
+        startActivity(intent);
     }
 }
