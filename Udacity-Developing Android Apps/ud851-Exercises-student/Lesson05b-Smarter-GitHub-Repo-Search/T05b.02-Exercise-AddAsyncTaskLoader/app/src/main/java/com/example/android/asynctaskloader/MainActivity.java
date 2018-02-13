@@ -15,6 +15,9 @@
  */
 package com.example.android.asynctaskloader;
 
+import android.app.LoaderManager;
+import android.content.AsyncTaskLoader;
+import android.content.Loader;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -30,8 +33,7 @@ import com.example.android.asynctaskloader.utilities.NetworkUtils;
 import java.io.IOException;
 import java.net.URL;
 
-// TODO (1) implement LoaderManager.LoaderCallbacks<String> on MainActivity
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
     /* A constant to save and restore the URL that is being displayed */
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     /* A constant to save and restore the JSON that is being displayed */
     private static final String SEARCH_RESULTS_RAW_JSON = "results";
 
-    // TODO (2) Create a constant int to uniquely identify your loader. Call it GITHUB_SEARCH_LOADER
+    static final int GITHUB_SEARCH_LOADER = 1;
 
     private EditText mSearchBoxEditText;
 
@@ -131,36 +133,60 @@ public class MainActivity extends AppCompatActivity {
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
-    // TODO (3) Override onCreateLoader
-    // Within onCreateLoader
-        // TODO (4) Return a new AsyncTaskLoader<String> as an anonymous inner class with this as the constructor's parameter
-            // TODO (5) Override onStartLoading
-                // Within onStartLoading
+    @Override
+    public Loader<String> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
 
-                // TODO (6) If args is null, return.
+    @Override
+    public void onLoadFinished(Loader<String> loader, String data) {
 
-                // TODO (7) Show the loading indicator
+    }
 
-                // TODO (8) Force a load
-                // END - onStartLoading
+    @Override
+    public void onLoaderReset(Loader<String> loader) {
 
-            // TODO (9) Override loadInBackground
+    }
 
-                // Within loadInBackground
-                // TODO (10) Get the String for our URL from the bundle passed to onCreateLoader
+    public Loader<String> onCreateLoader(int id, final Bundle args) {
+        return new AsyncTaskLoader<String>(this) {
+            @Override
+            protected void onStartLoading() {
+                super.onStartLoading();
+                if (args == null) {
+                    return;
+                }
+            }
 
-                // TODO (11) If the URL is null or empty, return null
 
-                // TODO (12) Copy the try / catch block from the AsyncTask's doInBackground method
-                // END - loadInBackground
+        }
+    }
+    // Within onStartLoading
+
+    // TODO (6) If args is null, return.
+
+    // TODO (7) Show the loading indicator
+
+    // TODO (8) Force a load
+    // END - onStartLoading
+
+    // TODO (9) Override loadInBackground
+
+    // Within loadInBackground
+    // TODO (10) Get the String for our URL from the bundle passed to onCreateLoader
+
+    // TODO (11) If the URL is null or empty, return null
+
+    // TODO (12) Copy the try / catch block from the AsyncTask's doInBackground method
+    // END - loadInBackground
 
     // TODO (13) Override onLoadFinished
 
-        // Within onLoadFinished
-        // TODO (14) Hide the loading indicator
+    // Within onLoadFinished
+    // TODO (14) Hide the loading indicator
 
-        // TODO (15) Use the same logic used in onPostExecute to show the data or the error message
-        // END - onLoadFinished
+    // TODO (15) Use the same logic used in onPostExecute to show the data or the error message
+    // END - onLoadFinished
 
     // TODO (16) Override onLoaderReset as it is part of the interface we implement, but don't do anything in this method
 
