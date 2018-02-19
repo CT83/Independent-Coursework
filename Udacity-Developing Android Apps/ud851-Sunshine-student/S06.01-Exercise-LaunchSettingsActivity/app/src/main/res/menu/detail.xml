@@ -18,10 +18,14 @@
       tools:context="com.example.android.sunshine.DetailActivity">
     <item
         android:id="@+id/action_share"
-        android:icon="@drawable/abc_ic_menu_share_mtrl_alpha"
+        android:icon="@drawable/art_storm"
         android:title="@string/action_share"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/art_storm"
+        android:title="@string/action_settings"
+        app:showAsAction="always"/>
 
-    <!--TODO (5) Add a Settings option to the detail menu-->
 
 </menu>
